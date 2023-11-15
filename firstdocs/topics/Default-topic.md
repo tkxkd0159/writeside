@@ -40,11 +40,11 @@ Second Term
 : This is the definition of the second term.
 
 ## Insert Elements {switcher-key="For Docs"}
-* Ctrl+J or CMD+J : procedure, tabs, tldr, var, video
+### Ctrl+J or CMD+J : procedure, tabs, tldr, var, video
 
-<video src="https://youtu.be/ja0FQJyviKI?si=YgV4vGGmo6dUsRWy" width="600" height="600" mini-player="true"/>
+<video src="https://youtu.be/ja0FQJyviKI?si=YgV4vGGmo6dUsRWy" width="600" height="300" mini-player="true" preview-src="pfp_doodle.png"/>
 
-* Ctrl+N or CMD+N : link, table, image
+### Ctrl+N or CMD+N : link, table, image
 
 ![Create new topic options](new_topic_options.png){ width=290 }{border-effect=line}
 
