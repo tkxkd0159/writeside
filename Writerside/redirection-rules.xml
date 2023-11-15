@@ -6,4 +6,16 @@
         <accepts>page.html</accepts>
     </rule>
     -->
+    <rule id="584fa774">
+        <description>Created after removal of "Reference" from Writeside examples</description>
+        <accepts>Reference.html</accepts>
+    </rule>
+    <rule id="14bf084b">
+        <description>Created after removal of "How to" from Writeside examples</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+    <rule id="34d1fc9d">
+        <description>Created after removal of "Overview" from Writeside examples</description>
+        <accepts>Overview.html</accepts>
+    </rule>
 </rules>

@@ -1,4 +1,4 @@
-# Topic title
+# Snippet lib
 {is-library="true"}
 
 <snippet id="goch">

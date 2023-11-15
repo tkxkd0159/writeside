@@ -1,10 +1,19 @@
+---
+switcher-label: Content level
+---
 # All Writerside Use cases
 
+## Add new topics {switcher-key="For Editor"}
+You can create empty topics, or choose a template for different types of content that contains some boilerplate structure to help you get started:
+
+![Create new topic options](new_topic_options.png){ width=290 }{border-effect=line}
+
+## Basic grammar {collapsible="true" switcher-key="For Docs"}
 > Blockquotes
-> 
+>
 > Nested
 >> blockquotes
-> 
+>
 {style="tip"}
 
 > Warning
@@ -12,7 +21,7 @@
 {style="warning"}
 
 > Note
-> 
+>
 {style="note"}
 
 > Use ⌘+N to insert a Table, Link, Image easily
@@ -22,13 +31,17 @@
     <p>I am TL;DR</p>
 </tldr>
 
+### Definition lists
+[Reference](https://www.jetbrains.com/help/writerside/definition-lists.html)
 
-## Add new topics
-You can create empty topics, or choose a template for different types of content that contains some boilerplate structure to help you get started:
+{style="narrow"}
+First Term
+: This is the definition of the first term.
 
-![Create new topic options](new_topic_options.png){ width=290 }{border-effect=line}
+Second Term
+: This is the definition of the second term.
 
-## Inject XML
+## Inject XML {switcher-key="For Docs"}
 For example, this is how you inject a procedure:
 
 <procedure title="Inject a procedure" id="inject-a-procedure">
@@ -41,7 +54,7 @@ For example, this is how you inject a procedure:
     </step>
 </procedure>
 
-## Add interactive elements
+## Add interactive elements {switcher-key="For Docs"}
 
 ### Tabs
 To add switchable content, you can make use of tabs (inject them by starting to type `tab` on a new line):
@@ -71,16 +84,33 @@ Position the caret anywhere in the table and press <shortcut>Alt+Enter</shortcut
 
 <img src="convert_table_to_xml.png" alt="Convert table to XML" width="706" border-effect="line"/>
 
-## Code Snippet
+
+## Code Snippet {switcher-key="For Docs"}
 ### By library
 <include from="Code.md" element-id="goch"></include>
 
 ### By \<snippets\>
 ```go
 ```
-{src="bufch.go" include-lines="5-14"}
+{src="bufch.go" include-lines="5-14" collapsed-title="buffered channel" collapsible="true"}
 
+## Tooltip {switcher-key="For Docs"}
+This is my <tooltip term="mytooltip">custom tooltip</tooltip>
 
+## Mermaid {switcher-key="For Docs"}
+```mermaid
+graph LR
+A[Do you write docs?]
+A -- Yes --> B[Use Writerside]
+A -- No --> C[Tell us why]
+```
+
+### Math(Tex) {switcher-key="For Docs"}
+```tex
+\begin{equation}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+```
 
 <seealso>
     <category ref="wrs">
@@ -91,5 +121,8 @@ Position the caret anywhere in the table and press <shortcut>Alt+Enter</shortcut
     </category>
     <category ref="2">
         <a href="second-instance.md"></a>
+    </category>
+    <category ref="1">
+        <a href="Child-Reference.md"/>
     </category>
 </seealso>

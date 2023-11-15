@@ -1,3 +1,3 @@
 # About Second Instance
 
-Start typing here...
+Use Contents from second. This content is constantly being synced

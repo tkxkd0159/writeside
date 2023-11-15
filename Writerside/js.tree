@@ -7,13 +7,8 @@
                  start-page="Default-topic.md">
 
     <toc-element topic="Default-topic.md">
-        <toc-element topic="Child-Reference.md">
-        </toc-element>
+        <toc-element topic="Child-Reference.md"/>
     </toc-element>
-    <toc-element topic="Reference.md"/>
-    <toc-element topic="How-to.md"/>
     <toc-element topic="second-instance.md"/>
     <toc-element topic="Code.md"/>
-    <toc-element topic="Tutorial.md"/>
-    <toc-element topic="Overview.md"/>
 </instance-profile>
