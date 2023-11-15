@@ -13,7 +13,7 @@ permissions:
 
 env:
   # Name of module and id separated by a slash
-  INSTANCE: Writerside/js
+  INSTANCE: firstdocs/js
   # Replace XX with the ID of the instance in capital letters
   ARTIFACT: webHelpJS2-all.zip
 
