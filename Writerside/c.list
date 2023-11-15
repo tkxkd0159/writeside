@@ -4,4 +4,5 @@
 <categories>
     <category id="wrs" name="Writerside documentation" order="1"/>
     <category id="settings" name="Origin" order="2"/>
+    <category id="2" name="Second Instance" order="3"/>
 </categories>

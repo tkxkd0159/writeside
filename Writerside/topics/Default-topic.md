@@ -28,13 +28,6 @@ You can create empty topics, or choose a template for different types of content
 
 ![Create new topic options](new_topic_options.png){ width=290 }{border-effect=line}
 
-## Write content
-%product% supports two types of markup: Markdown and XML.
-When you create a new help article, you can choose between two topic types, but this doesn't mean you have to stick to a single format.
-You can author content in Markdown and extend it with semantic attributes or inject entire XML elements.
-
-
-
 ## Inject XML
 For example, this is how you inject a procedure:
 
@@ -78,17 +71,16 @@ Position the caret anywhere in the table and press <shortcut>Alt+Enter</shortcut
 
 <img src="convert_table_to_xml.png" alt="Convert table to XML" width="706" border-effect="line"/>
 
-## Feedback and support
-Please report any issues, usability improvements, or feature requests to our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=WRS">YouTrack project</a>
-(you will need to register).
+## Code Snippet
+### By library
+<include from="Code.md" element-id="goch"></include>
 
-You are welcome to join our
-<a href="https://join.slack.com/t/writerside/shared_invite/zt-1hnvxnl0z-Nc6RWXTppRI2Oc566vumYw">public Slack workspace</a>.
-Before you do, please read our [Code of conduct](https://plugins.jetbrains.com/plugin/20158-writerside/docs/writerside-code-of-conduct.html).
-We assume that you’ve read and acknowledged it before joining.
+### By \<snippets\>
+```go
+```
+{src="bufch.go" include-lines="5-14"}
 
-You can also always email [writerside@jetbrains.com](mailto:writerside@jetbrains.com).
+
 
 <seealso>
     <category ref="wrs">
@@ -96,5 +88,8 @@ You can also always email [writerside@jetbrains.com](mailto:writerside@jetbrains
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/manage-table-of-contents.html">Reorder topics in the TOC</a>
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/local-build.html">Build and publish</a>
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure Search</a>
+    </category>
+    <category ref="2">
+        <a href="second-instance.md"></a>
     </category>
 </seealso>
