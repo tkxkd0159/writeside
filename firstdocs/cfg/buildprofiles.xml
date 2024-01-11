@@ -16,6 +16,7 @@
         <download-title>Get source code</download-title>
         <download-page>https://github.com/tkxkd0159/writeside</download-page>
         <showDownloadButton>true</showDownloadButton>
+        <noindex-content>false</noindex-content>
     </variables>
 
     <footer>
