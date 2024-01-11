@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Starting Page" id="Section-Starting-Page">
+
+    <section-starting-page>
+        <title>Starting page</title>
+        <description>
+            Writerside tutorial
+        </description>
+
+        <!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
+        <spotlight>
+            <a href="XML-reference.topic" type="development" summary="XML reference for Writerside (recommened)">XML Markup</a>
+            <a href="Default-topic.md" type="documents" summary="Markdown reference for Writerside">Markdown Markup</a>
+        </spotlight>
+
+        <!--    Add several topics that are most important for this section.    -->
+        <primary>
+            <title>Get started</title>
+            <a href="Nested-topic.topic" type="file" summary="primary topic"/>
+        </primary>
+
+        <!--    Add several topics that are less important or are relevant only for advanced/experienced users.    -->
+        <secondary>
+            <title>Explore advanced features</title>
+            <a href="Nested-nested-topic.md" summary="Secondary topic"/>
+        </secondary>
+
+        <!--    Optionally add additional cards and links to topics that are not in this section but may be relevant.    -->
+        <misc>
+            <cards>
+                <title>Other relevant topics as wide cards</title>
+                <a href=""/>
+                <a href="" summary="With a custom card summary"/>
+                <a href="">Custom card title</a>
+                <a href="" summary="With a custom card summary">Custom card title</a>
+            </cards>
+
+            <cards narrow="true">
+                <title>Other relevant topics as narrow cards</title>
+                <a href=""/>
+                <a href=""/>
+                <a href="" summary="With a custom card summary"/>
+                <a href="">Custom card title</a>
+                <a href="">Custom card title</a>
+                <a href="" summary="With a custom card summary">Custom card title</a>
+            </cards>
+
+            <links>
+                <group>
+                    <title>Other related topics as links</title>
+                    <a href=""/>
+                    <a href="" summary="With a custom card summary"/>
+                    <a href="">Custom card title</a>
+                    <a href="" summary="With a custom card summary">Custom card title</a>
+                </group>
+                <group>
+                    <title>Two in a row</title>
+                    <a href=""/>
+                    <a href="" summary="With a custom card summary"/>
+                    <a href="">Custom card title</a>
+                    <a href="" summary="With a custom card summary">Custom card title</a>
+                </group>
+            </links>
+
+            <links narrow="true">
+                <group>
+                    <title>More related topics</title>
+                    <a href=""/>
+                    <a href="" summary="With a custom card summary"/>
+                    <a href="">Custom card title</a>
+                    <a href="" summary="With a custom card summary">Custom card title</a>
+                </group>
+                <group>
+                    <title>Three in a row</title>
+                    <a href=""/>
+                    <a href=""/>
+                    <a href="">Custom card title</a>
+                    <a href="">Custom card title</a>
+                </group>
+                <group>
+                    <title>Each group is narrow</title>
+                    <a href=""/>
+                    <a href=""/>
+                    <a href="">Custom card title</a>
+                    <a href="">Custom card title</a>
+                </group>
+            </links>
+        </misc>
+    </section-starting-page>
+</topic>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<!--suppress ALL -->
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="XML reference" id="XML-reference" switcher-label="Content level">
+
+    <!--    current page's TOC (right-hand)-->
+    <show-structure for="chapter,procedure" depth="3"/>
+
+    <!--    When this element is specified, Writerside adds a meta tag with a name="description" attribute -->
+    <!--    and content="your web-summary here" attribute to the generated HTML page.-->
+    <web-summary>This is information for the search engines.</web-summary>
+
+    <chapter title="Markup" id="example-chapter-id" switcher-key="basic">
+        <chapter title="Basic">
+            <table style="header-row">
+                <tr>
+                    <td>Markup</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                                    <i>emphasis</i>, <b>bold</b>, <s>strikethrough</s>, <u>underline</u>
+                                ]]>
+                        </code-block>
+                    </td>
+                    <td><i>emphasis</i>, <b>bold</b>, <s>strikethrough</s>, <u>underline</u>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                                    <tooltip term="mytooltip">Tooltip</tooltip>
+                                ]]>
+                        </code-block>
+                    </td>
+                    <td>
+                        <tooltip term="mytooltip">Tooltip</tooltip>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                                <a anchor="config" summary="Config manual for Writerside"></a>
+                                <a href="Child-Reference.md"></a>
+                            ]]>
+                        </code-block>
+                    </td>
+                    <td>
+                        <list>
+                            <li><a anchor="config" summary="Config manual for Writerside">Go to Config</a></li>
+                            <li><a href="Nested-nested-topic.md" summary="Total layer is 3"/></li>
+                        </list>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                    <list type="decimal" start="1">
+                        <li>Alphabet
+                            <list type="alpha-lower">
+                                <li>First indented item.</li>
+                            </list>
+                        </li>
+                        <li>Bullet
+                            <list>
+                                <li>First indented item.</li>
+                            </list>
+                        </li>
+                        <li>None
+                            <list type="none">
+                                <li>First indented item.</li>
+                            </list>
+                        </li>
+                    </list>                                ]]>
+                        </code-block>
+                    </td>
+                    <td>
+                        <list type="decimal" start="1">
+                            <li>Alphabet
+                                <list type="alpha-lower">
+                                    <li>First indented item.</li>
+                                </list>
+                            </li>
+                            <li>Bullet
+                                <list>
+                                    <li>First indented item.</li>
+                                </list>
+                            </li>
+                            <li>None
+                                <list type="none">
+                                    <li>First indented item.</li>
+                                </list>
+                            </li>
+                        </list>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <deflist>
+                            <def title="control">
+                                Use the <code>control</code> tag to refer to UI elements such as buttons, dialogs,
+                                checkboxes
+                                <code-block lang="xml">
+                                    <![CDATA[
+                                    <control> Check out from Version Control </control>, then select <control>Git</control>
+                                    ]]>
+                                </code-block>
+                            </def>
+                            <def title="ui-path">
+                                Use the <code>ui-path</code> tag to specify a path to a menu option
+                                <code-block lang="xml">
+                                    <![CDATA[
+                                    Go to <ui-path>Settings/Preferences | Tools | Writerside</ui-path>
+                                    ]]>
+                                </code-block>
+                            </def>
+                            <def title="path">
+                                Use the <code>path</code> tag for paths to directories and files on your computer or
+                                file extensions.
+                                <code-block lang="xml">
+                                    <![CDATA[
+                                    The TOC is stored in the product's<path>.tree</path> file
+                                    ]]>
+                                </code-block>
+                            </def>
+                        </deflist>
+                    </td>
+                    <td>
+                        <list>
+                            <li>
+                                <control> Check out from Version Control</control>
+                                , then select
+                                <control>Git</control>
+                            </li>
+                            <li>Go to
+                                <ui-path>Settings/Preferences | Tools | Writerside</ui-path>
+                            </li>
+                            <li>The TOC is stored in the product's
+                                <path>.tree</path>
+                                file
+                            </li>
+                        </list>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                                Press <shortcut>Ctrl+C</shortcut> to copy.
+                            ]]>
+                        </code-block>
+                    </td>
+                    <td>
+                        Press
+                        <shortcut>Ctrl+C</shortcut>
+                        to copy.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block lang="xml">
+                            <![CDATA[
+                            <li><format style="bold" color="RosyBrown">Hello!</format></li>
+                            <li><format style="italic" color="Salmon">Hello!</format></li>
+                            <li><format style="strikethrough" color="Aqua">Hello!</format></li>
+                            <li><format style="underline" color="PaleVioletRed">Hello!</format></li>
+                            <li><format style="superscript" color="Turquoise">Sup</format>-<format style="subscript" color="Magenta">Sub</format></li>
+                            ]]>
+                        </code-block>
+                    </td>
+                    <td>
+                        <list>
+                            <li>
+                                <format style="bold" color="RosyBrown">Hello!</format>
+                            </li>
+                            <li>
+                                <format style="italic" color="Salmon">Hello!</format>
+                            </li>
+                            <li>
+                                <format style="strikethrough" color="Aqua">Hello!</format>
+                            </li>
+                            <li>
+                                <format style="underline" color="PaleVioletRed">Hello!</format>
+                            </li>
+                            <li>
+                                A
+                                <format style="superscript" color="Turquoise">2</format>
+                                H
+                                <format style="subscript" color="Magenta">2</format>
+                                O
+                            </li>
+                        </list>
+                    </td>
+                </tr>
+            </table>
+        </chapter>
+
+        <chapter title="Image">
+            <code-block lang="xml">
+                <![CDATA[
+                <img src="pfp_doodle.png" alt="alt text" width="100" height="100" preview-src="fnsa.png" border-effect="rounded"/>
+                <img src="pfp_doodle.png" alt="alt text" width="100" height="100" thumbnail="true" border-effect="line"/>
+
+                <!-- Add the _dark.png suffix to the name of the dark image version. (automatically change depending on the mode) -->
+                <img src="mode.png" alt="alt text" width="200" height="200" border-effect="none"/>
+                ]]>
+            </code-block>
+            <img src="pfp_doodle.png" alt="alt text" width="100" height="100" preview-src="fnsa.png"
+                 border-effect="rounded"/>
+            <img src="pfp_doodle.png" alt="alt text" width="100" height="100" thumbnail="true" border-effect="line"/>
+            <img src="mode.png" alt="alt text" width="200" height="200" border-effect="none"/>
+        </chapter>
+
+        <!--        mini-player can be used only for local video-->
+
+        <chapter title="Video">
+            <code-block lang="xml">
+                <!--mini-player can be used only for local video-->
+                <![CDATA[
+                    <video src="https://youtu.be/ja0FQJyviKI?si=YgV4vGGmo6dUsRWy" width="300" height="300" preview-src="pfp_doodle.png"/>
+                    <video src="short-video.mp4" width="300" height="300" mini-player="true"/>
+                ]]>
+            </code-block>
+            <video src="https://youtu.be/ja0FQJyviKI?si=YgV4vGGmo6dUsRWy" width="300" height="300"
+                   preview-src="pfp_doodle.png"/>
+            <video src="short-video.mp4" width="300" height="300" mini-player="true"/>
+        </chapter>
+
+        <chapter title="Procedure" id="subchapter" collapsible="true" default-state="expanded">
+            <code-block lang="xml">
+                <![CDATA[
+            <procedure title="Step type" id="procedure-id">
+                <p>Before adding something, create it.</p>
+                <step>Do this.</step>
+                <step>Do that.</step>
+                <p>Congratulation! You've added something.</p>
+            </procedure>
+
+            <procedure title="Choice type" id="procedure-id2" collapsible="true" default-state="collapsed"
+                       type="choices">
+                <p>Before adding something, create it.</p>
+                <step>Option 1.</step>
+                <step>Option 2.</step>
+                <p>Congratulation! You've added something.</p>
+            </procedure>
+                ]]>
+            </code-block>
+            <procedure title="Step type" id="procedure-id">
+                <p>Before adding something, create it.</p>
+                <step>Do this.</step>
+                <step>Do that.</step>
+                <p>Congratulation! You've added something.</p>
+            </procedure>
+
+            <procedure title="Choice type" id="procedure-id2" collapsible="true" default-state="collapsed"
+                       type="choices">
+                <p>Before adding something, create it.</p>
+                <step>Option 1.</step>
+                <step>Option 2.</step>
+                <p>Congratulation! You've added something.</p>
+            </procedure>
+        </chapter>
+
+        <chapter title="Programming code" id="programming-code">
+            <code-block lang="xml">
+                <![CDATA[
+            <code-block lang="kotlin" collapsible="true" collapsed-title="Person.kt" show-white-spaces="true">
+                class Person(val name: String) {
+                    val children: MutableList<Person> = mutableListOf()
+
+                    constructor(name: String, parent: Person) : this(name) {
+                    parent.children.add(this)
+                    }
+                }
+            </code-block>
+                ]]>
+            </code-block>
+
+            <code-block lang="kotlin" collapsible="true" collapsed-title="Person.kt" show-white-spaces="true">
+                <![CDATA[
+                class Person(val name: String) {
+                    val children: MutableList<Person> = mutableListOf()
+
+                    constructor(name: String, parent: Person) : this(name) {
+                    parent.children.add(this)
+                    }
+                }
+                ]]>
+            </code-block>
+
+            <code-block lang="xml">
+                <![CDATA[
+            <code-block src="go/bufch.go" lang="go" include-lines="5-14" collapsed-title-line-number="8" collapsible="true"/>
+                ]]>
+            </code-block>
+            <code-block src="go/bufch.go" lang="go" include-lines="5-14" collapsed-title-line-number="8" collapsible="true"/>
+
+            <code-block lang="xml">
+                <![CDATA[
+            <include from="Code.topic" element-id="goch"/>
+                ]]>
+            </code-block>
+            <include from="Code.topic" element-id="goch"/>
+
+            <code-block lang="xml">
+                <![CDATA[
+            <compare first-title="inital" second-title="modified">
+                <code-block id="cmp-1" lang="go">
+                    type Profile struct {
+                    name string
+                    age int
+                    }
+                </code-block>
+                <code-block id="cmp-2" lang="go">
+                    type DetailProfile struct {
+                    name string
+                    age int
+                    nationality string
+                    }
+                </code-block>
+            </compare>                ]]>
+            </code-block>
+            <compare first-title="inital" second-title="modified">
+                <code-block id="cmp-1" lang="go">
+                    type Profile struct {
+                    name string
+                    age int
+                    }
+                </code-block>
+                <code-block id="cmp-2" lang="go">
+                    type DetailProfile struct {
+                    name string
+                    age int
+                    nationality string
+                    }
+                </code-block>
+            </compare>
+
+        </chapter>
+
+        <chapter title="Definition list" id="definition-list">
+            <code-block lang="xml">
+                <![CDATA[
+            <deflist collapsible="true">
+                <def title="Expanded by default" collapsible="true" default-state="expanded">
+                    This is the definition of the first term.
+                </def>
+                <def title="Collapsed by default" collapsible="true" default-state="collapsed">
+                    This is the definition of the second term.
+                </def>
+            </deflist>                ]]>
+            </code-block>
+
+            <deflist collapsible="true">
+                <def title="Expanded by default" collapsible="true" default-state="expanded">
+                    This is the definition of the first term.
+                </def>
+                <def title="Collapsed by default" collapsible="true" default-state="collapsed">
+                    This is the definition of the second term.
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Tabs" id="tabs">
+            <code-block lang="xml">
+                <![CDATA[
+                <tabs group="multi">
+                    <tab title="Markdown" group-key="slave1">
+                        <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
+                    </tab>
+                    <tab title="Semantic markup" group-key="slave2">
+                        <code-block lang="xml">
+                            <img src="new_topic_options.png" alt="Alt text" width="450px"/>
+
+                        </code-block>
+                    </tab>
+                </tabs>
+                <tabs group="multi">
+                    <tab title="Markdown2" group-key="slave1">
+                        <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
+                    </tab>
+                    <tab title="Semantic markup2" group-key="slave2">
+                        <code-block lang="xml">
+                            <img src="new_topic_options.png" alt="Alt text" width="450px"/></code-block>
+                    </tab>
+                </tabs>
+            ]]>
+            </code-block>
+
+            <tabs group="multi">
+                <tab title="Markdown" group-key="slave1">
+                    <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
+                </tab>
+                <tab title="Semantic markup" group-key="slave2">
+                    <code-block lang="xml">
+                        <![CDATA[
+                        <img src="new_topic_options.png" alt="Alt text" width="450px"/>
+]]>
+                    </code-block>
+                </tab>
+            </tabs>
+            <tabs group="multi">
+                <tab title="Markdown2" group-key="slave1">
+                    <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
+                </tab>
+                <tab title="Semantic markup2" group-key="slave2">
+                    <code-block lang="xml">
+                        <![CDATA[<img src="new_topic_options.png" alt="Alt text" width="450px"/>]]></code-block>
+                </tab>
+            </tabs>
+        </chapter>
+
+        <chapter title="TL;DR" id="tl-dr">
+            <code-block lang="xml">
+                <![CDATA[
+                <tldr>
+                    <p>Shortcut:
+                        <shortcut>Ctrl+Space</shortcut>
+                    </p>
+                    <p>Configure:
+                        <ui-path>Settings / Preferences | Editor | Code Completion</ui-path>
+                    </p>
+                </tldr>
+                ]]>
+            </code-block>
+
+            <tldr>
+                <p>Shortcut:
+                    <shortcut>Ctrl+Space</shortcut>
+                </p>
+                <p>Configure:
+                    <ui-path>Settings / Preferences | Editor | Code Completion</ui-path>
+                </p>
+            </tldr>
+        </chapter>
+
+        <chapter title="Tip, Note, Warning" id="admonition-note">
+            <code-block lang="xml">
+                <![CDATA[
+                <tip>
+                    <p>
+                        A piece of advice.
+                    </p>
+                </tip>
+
+                <note>
+                    <p>
+                        Just FYI.
+                    </p>
+                </note>
+
+                <warning>
+                    <p>
+                        You shall not pass.
+                    </p>
+                </warning>
+                ]]>
+            </code-block>
+            <tip>
+                <p>
+                    A piece of advice.
+                </p>
+            </tip>
+
+            <note>
+                <p>
+                    Just FYI.
+                </p>
+            </note>
+
+            <warning>
+                <p>
+                    You shall not pass.
+                </p>
+            </warning>
+        </chapter>
+
+        <chapter title="Diagram">
+            <chapter title="Mermaid">
+                <code-block lang="xml">
+                    <![CDATA[
+                    <code-block lang="mermaid">
+                        graph LR
+                        A[Do you write docs?]
+                        A -- Yes --> B[Use Writerside]
+                        A -- No --> C[Tell us why]
+                    </code-block>
+                    ]]>
+                </code-block>
+                <code-block lang="mermaid">
+                    graph LR
+                    A[Do you write docs?]
+                    A -- Yes --> B[Use Writerside]
+                    A -- No --> C[Tell us why]
+                </code-block>
+            </chapter>
+            <chapter title="PlantUML">
+                <code-block lang="xml">
+                    <![CDATA[
+                    <code-block lang="plantuml">
+                        @startuml
+                        Bob->Alice : Hello!
+                        @enduml
+                    </code-block>
+                    ]]>
+                </code-block>
+                <code-block lang="plantuml">
+                    @startuml
+                    Bob->Alice : Hello!
+                    @enduml
+                </code-block>
+            </chapter>
+        </chapter>
+
+        <chapter title="TeX">
+            <code-block lang="xml">
+                <![CDATA[
+                    <code-block lang="tex">
+                        \begin{equation}
+                        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+                        \end{equation}
+                    </code-block>
+                ]]>
+            </code-block>
+            <code-block lang="tex">
+                \begin{equation}
+                x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+                \end{equation}
+            </code-block>
+        </chapter>
+
+        <chapter title="API Docs">
+            Generate from OpenAPI specification files (YAML or JSON)
+            <code-block lang="xml"><![CDATA[<api-doc openapi-path="path/to/spec.yaml"/>]]></code-block>
+        </chapter>
+
+    </chapter>
+
+    <chapter title="Config" id="config">
+        <chapter title="writerside.cfg">
+            The main configuration file defines the basic Writerside project settings and instances. This file is how Writerside knows where the root directory of your help module is.
+            <code-block lang="xml">
+                <![CDATA[
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <!DOCTYPE ihp SYSTEM "https://resources.jetbrains.com/writerside/1.0/ihp.dtd">
+
+                    <ihp version="2.0">
+                        <topics dir="topics" web-path="topics"/>
+                        <images dir="images" web-path="images"/>
+                        <snippets dir="code-snippets" web-path="code"/>
+
+                        <categories src="c.list"/>
+                        <vars src="v.list"/>
+
+                        <instance src="js.tree"/>
+                        <instance src="xe.tree" web-path="/xe/" version="1.0"/>
+                    </ihp>
+                ]]>
+            </code-block>
+        </chapter>
+
+        <chapter title="glossary.xml">
+            Used to define terms and their descriptions that you can use in <tooltip term="tooltips">
+                tooltips
+            </tooltip>.
+            <code-block lang="xml">
+                <![CDATA[
+                <?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/writerside/1.0/glossary.dtd">
+                <terms>
+                    <term name="mytooltip">Tooltips show a definition when a user hovers over a term.</term>
+                </terms>
+                ]]>
+            </code-block>
+        </chapter>
+
+        <chapter title="buildprofiles.xml">
+            Used to configure the final output(e.g. header, footer, search bar).
+        </chapter>
+        <chapter title="library" id="libs">
+            <p>
+                It's used to make reusable contents. So this instance will not be published.
+                You can include other instance's topic group with <code><![CDATA[<include>]]></code>
+            </p>
+            <tabs>
+                <tab title="main.tree">
+                    <code-block lang="xml">
+                        <![CDATA[
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <!DOCTYPE instance-profile
+                                SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+                        <instance-profile id="js"
+                                         name="Writeside examples"
+                                         start-page="Default-topic.md">
+
+                            <include from="library1.tree" element-id="first-topic-group"/>
+                            <include from="library1.tree" element-id="second-topic-group"/>
+                        </instance-profile>
+                        ]]>
+                    </code-block>
+                </tab>
+                <tab title="library1.tree">
+                    <code-block lang="xml" id="lib-1">
+                        <![CDATA[
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <!DOCTYPE instance-profile
+                                SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+                        <instance-profile id="{library_name}"
+                                          name="XML example"
+                                          start-page="XML-reference.topic" is-library="true">
+
+                            <snippet id="first-topic-group">
+                                <toc-element topic="first.topic"/>
+                            </snippet>
+
+                            <toc-element id="second-topic-group">
+                                <toc-element topic="second.topic"/>
+                            </toc-element>
+                        </instance-profile>
+                        ]]>
+                    </code-block>
+                </tab>
+            </tabs>
+
+        </chapter>
+    </chapter>
+
+    <p switcher-key="empty">empty</p>
+
+    <seealso>
+        <category ref="wrs">
+            <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/markup-reference.html">Markup
+                reference</a>
+            <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/manage-table-of-contents.html">Reorder
+                topics in the TOC</a>
+            <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/local-build.html">Build and publish</a>
+            <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure
+                Search</a>
+        </category>
+        <category ref="1">
+            <a href="Default-topic.md"></a>
+        </category>
+        <category ref="2">
+            <a href="Nested-topic.topic"></a>
+        </category>
+    </seealso>
+</topic>

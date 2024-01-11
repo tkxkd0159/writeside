@@ -1,7 +1,9 @@
 ---
 switcher-label: Content level
 ---
-# All Writerside Use cases
+# Makrdown reference
+<show-structure for="chapter,procedure" depth="3"/>
+
 Use var : %var%
 <var name="var" value="The new value"/>  
 Override var : %var%
@@ -103,12 +105,12 @@ Content under such header will be collapsed by default, but you can modify the b
 
 ## Code Snippet {switcher-key="For Docs"}
 ### By library
-<include from="Code.md" element-id="goch"></include>
+<include from="Code.topic" element-id="goch"></include>
 
 ### By \<snippets\>
 ```go
 ```
-{src="bufch.go" include-lines="5-14" collapsed-title="buffered channel" collapsible="true"}
+{src="go/bufch.go" include-lines="5-14" collapsed-title="buffered channel" collapsible="true"}
 
 ## Tooltip {switcher-key="For Docs"}
 This is my <tooltip term="mytooltip">custom tooltip</tooltip>
@@ -140,9 +142,9 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure Search</a>
     </category>
     <category ref="2">
-        <a href="second-instance.md"></a>
+        <a href="XML-reference.topic"></a>
     </category>
     <category ref="1">
-        <a href="Child-Reference.md"/>
+        <a href="Nested-topic.topic"/>
     </category>
 </seealso>

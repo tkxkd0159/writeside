@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="xe"
+                  name="XML example"
+                  is-library="true" start-page="XML-reference.topic">
+
+<!--    <snippet id="xml-intro">-->
+<!--        <toc-element topic="XML-reference.topic"/>-->
+<!--    </snippet>-->
+
+    <toc-element id="xml-intro" toc-title="Recommended">
+        <toc-element topic="XML-reference.topic"/>
+    </toc-element>
+</instance-profile>

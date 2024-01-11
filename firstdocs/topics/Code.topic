@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Code snippets" is-library="true" id="code_snippet">
+
+    <snippet id="goch">
+        <code-block lang="go">
+            <![CDATA[
+        package main
+
+        import (
+        "fmt"
+        "time"
+        )
+
+        func worker(done chan bool) {
+            fmt.Print("working...")
+            time.Sleep(time.Second)
+            fmt.Println("done")
+
+            done <- true
+        }
+
+        func main() {
+
+            done := make(chan bool, 1)
+            go worker(done)
+            <-done
+        }
+        ]]>
+        </code-block>
+
+    </snippet>
+</topic>
