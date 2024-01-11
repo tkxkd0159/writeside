@@ -27,4 +27,16 @@
         <social type="facebook" href="link to a Facebook account"/>
         <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
     </footer>
+
+    <build-profile instance="js">
+        <variables>
+            <noindex-content>false</noindex-content>
+            <feedback-widget>true</feedback-widget>
+            <feedbackRequireEmail>true</feedbackRequireEmail>
+            <feedback-url>https://example.com</feedback-url>
+            <feedback-support>Suppoer ticket</feedback-support>
+
+            <versions-switcher>https://raw.githubusercontent.com/tkxkd0159/writeside/main/help-version.json</versions-switcher>
+        </variables>
+    </build-profile>
 </buildprofiles>
