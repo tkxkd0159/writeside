@@ -1,0 +1,21 @@
+<buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
+    <variables>
+        <primary-color>aqua</primary-color>
+        <custom-favicons>favicon.png</custom-favicons>
+        <header-logo>fnsa.png</header-logo>
+        <product-web-url>https://tkxkd0159.github.io/writeside/default-topic.html</product-web-url>
+        <download-title>Get Writerside Example</download-title>
+        <download-page>https://github.com/tkxkd0159/writeside</download-page>
+        <showDownloadButton>true</showDownloadButton>
+    </variables>
+
+    <footer>
+        <copyright>Jaeseung Lee</copyright>
+<!--    social type : facebook, twitter, linkedin, youtube, instagram, weibo, blog, rss, bilibili, email-->
+        <social type="blog" href="link to a blog"></social>
+        <social type="twitter" href="link to a Twitter account"></social>
+        <social type="facebook" href="link to a Facebook account"></social>
+        <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
+    </footer>
+</buildprofiles>
