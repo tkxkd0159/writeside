@@ -301,7 +301,8 @@
             <code-block src="go/bufch.go" lang="go" include-lines="5-14" collapsed-title-line-number="8" collapsible="true"/>
                 ]]>
             </code-block>
-            <code-block src="go/bufch.go" lang="go" include-lines="5-14" collapsed-title-line-number="8" collapsible="true"/>
+            <code-block src="go/bufch.go" lang="go" include-lines="5-14" collapsed-title-line-number="8"
+                        collapsible="true"/>
 
             <code-block lang="xml">
                 <![CDATA[
@@ -546,7 +547,8 @@
 
     <chapter title="Config" id="config">
         <chapter title="writerside.cfg">
-            The main configuration file defines the basic Writerside project settings and instances. This file is how Writerside knows where the root directory of your help module is.
+            The main configuration file defines the basic Writerside project settings and instances. This file is how
+            Writerside knows where the root directory of your help module is.
             <code-block lang="xml">
                 <![CDATA[
                     <?xml version="1.0" encoding="UTF-8"?>
@@ -568,9 +570,11 @@
         </chapter>
 
         <chapter title="glossary.xml">
-            Used to define terms and their descriptions that you can use in <tooltip term="tooltips">
+            Used to define terms and their descriptions that you can use in
+            <tooltip term="tooltips">
                 tooltips
-            </tooltip>.
+            </tooltip>
+            .
             <code-block lang="xml">
                 <![CDATA[
                 <?xml version="1.0" encoding="UTF-8"?>
@@ -584,6 +588,32 @@
 
         <chapter title="buildprofiles.xml">
             Used to configure the final output(e.g. header, footer, search bar).
+
+            <code-block lang="xml">
+                <![CDATA[
+                <buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                               xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
+                    <variables>
+                        <primary-color>aqua</primary-color>
+                        <custom-favicons>favicon.png</custom-favicons>
+                        <header-logo>fnsa.png</header-logo>
+                        <product-web-url>https://tkxkd0159.github.io/writeside/section-starting-page.html</product-web-url>
+                        <download-title>Get source code</download-title>
+                        <download-page>https://github.com/tkxkd0159/writeside</download-page>
+                        <showDownloadButton>true</showDownloadButton>
+                    </variables>
+
+                    <footer>
+                        <copyright>Jaeseung Lee</copyright>
+                <!--    social type : facebook, twitter, linkedin, youtube, instagram, weibo, blog, rss, bilibili, email-->
+                        <social type="blog" href="link to a blog"></social>
+                        <social type="twitter" href="link to a Twitter account"></social>
+                        <social type="facebook" href="link to a Facebook account"></social>
+                        <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
+                    </footer>
+                </buildprofiles>
+                ]]>
+            </code-block>
         </chapter>
         <chapter title="library" id="libs">
             <p>
