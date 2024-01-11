@@ -154,13 +154,13 @@
                     <td>
                         <code-block lang="xml">
                             <![CDATA[
-                                Press <shortcut>Ctrl+C</shortcut> to copy.
+                                Press <shortcut key="$Copy"/> to copy.
                             ]]>
                         </code-block>
                     </td>
                     <td>
                         Press
-                        <shortcut>Ctrl+C</shortcut>
+                        <shortcut key="$Copy"/>
                         to copy.
                     </td>
                 </tr>

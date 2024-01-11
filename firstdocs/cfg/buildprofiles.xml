@@ -1,5 +1,13 @@
 <buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
+
+    <shortcuts>
+        <src>keymap.xml</src>
+        <layout name="Windows" display-name="Windows"/>
+        <layout name="macOS" display-name="MacOS"/>
+        <layout name="Linux" display-name="Linux"/>
+    </shortcuts>
+
     <variables>
         <primary-color>aqua</primary-color>
         <custom-favicons>favicon.png</custom-favicons>
@@ -13,9 +21,9 @@
     <footer>
         <copyright>Jaeseung Lee</copyright>
 <!--    social type : facebook, twitter, linkedin, youtube, instagram, weibo, blog, rss, bilibili, email-->
-        <social type="blog" href="link to a blog"></social>
-        <social type="twitter" href="link to a Twitter account"></social>
-        <social type="facebook" href="link to a Facebook account"></social>
+        <social type="blog" href="link to a blog"/>
+        <social type="twitter" href="link to a Twitter account"/>
+        <social type="facebook" href="link to a Facebook account"/>
         <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
     </footer>
 </buildprofiles>

@@ -11,7 +11,6 @@
         <toc-element topic="Nested-topic.topic">
             <toc-element topic="Nested-nested-topic.md"/>
         </toc-element>
-        <toc-element topic="Code.topic" hidden="true"/>
         <toc-element topic="Default-topic.md"/>
 
         <include from="xe.tree" element-id="xml-intro"/>

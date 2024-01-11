@@ -54,7 +54,7 @@ Second Term
 ### Convert selection to XML
 If you need to extend an element with more functions, you can convert selected content from Markdown to semantic markup.
 For example, if you want to merge cells in a table, it's much easier to convert it to XML than do this in Markdown.
-Position the caret anywhere in the table and press <shortcut>Alt+Enter</shortcut>:
+Position the caret anywhere in the table and press <shortcut key="$ConvSelXML"/>:
 
 <img src="convert_table_to_xml.png" alt="Convert table to XML" width="706" border-effect="line"/>
 
