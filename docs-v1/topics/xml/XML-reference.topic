@@ -55,7 +55,7 @@
                     <td>
                         <list>
                             <li><a anchor="config" summary="Config manual for Writerside">Go to Config</a></li>
-                            <li><a href="Nested-nested-topic.md" summary="Total layer is 3"/></li>
+                            <li><a href="Nested-nested-topic.md" summary="Total layer is 3" instance="js"/></li>
                         </list>
                     </td>
                 </tr>
@@ -678,10 +678,10 @@
                 Search</a>
         </category>
         <category ref="1">
-            <a href="Default-topic.md"></a>
+            <a href="Default-topic.md" instance="js"></a>
         </category>
         <category ref="2">
-            <a href="Nested-topic.topic"></a>
+            <a href="Nested-topic.topic" instance="js"></a>
         </category>
     </seealso>
 </topic>

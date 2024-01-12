@@ -30,13 +30,14 @@
 
     <build-profile instance="js">
         <variables>
-            <noindex-content>false</noindex-content>
+
             <feedback-widget>true</feedback-widget>
             <feedbackRequireEmail>true</feedbackRequireEmail>
             <feedback-url>https://example.com</feedback-url>
-            <feedback-support>Suppoer ticket</feedback-support>
+            <feedback-support>support_tickec_url</feedback-support>
 
             <versions-switcher>https://raw.githubusercontent.com/tkxkd0159/writeside/main/help-version.json</versions-switcher>
+            <noindex-content>false</noindex-content>
         </variables>
     </build-profile>
 </buildprofiles>
