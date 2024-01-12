@@ -12,6 +12,7 @@ permissions:
   pages: write
 
 env:
+  STABLE_VERSION: v1
   # Name of module and id separated by a slash
   INSTANCE: mydocs/js
   # Replace XX with the ID of the instance in capital letters
@@ -39,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: docs${{ matrix.version }}
+          name: docs-${{ matrix.version }}
           path: |
             artifacts/${{ env.ARTIFACT }}
             artifacts/report.json
@@ -55,10 +56,11 @@ jobs:
 
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
-          name: docs${{ matrix.version }}
+          name: docs-${{ matrix.version }}
           path: artifacts
+
       - name: Test documentation
         uses: JetBrains/writerside-checker-action@v1
         with:
@@ -67,27 +69,25 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}${{ env.STABLE_VERSION }}
     needs: build
     runs-on: ubuntu-latest
 
     steps:
       - name: Download docs
-        uses: actions/download-artifact@v4
-        with:
-          pattern: docs*
+        uses: actions/download-artifact@v3
 
       - name: Generate documents destination
         run: |
-          echo "v=(v1 v2)" >> $GITHUB_ENV
-          mkdir -p dist/${{ env.v[1] }} && mkdir dist/${{ env.v[2] }}
+          mkdir -p dist/v1 && mkdir dist/v2
+
+      - name: check dir
+        run: ls -R
 
       - name: Unzip docs
-        uses: montudor/action-zip@v1
-        with:
-          args: >
-            unzip -qq docs${{ env.v[1] }}/${{ env.ARTIFACT }} -d dist/${{ env.v[1] }} &&
-            unzip -qq docs${{ env.v[2] }}/${{ env.ARTIFACT }} -d dist/${{ env.v[2] }}
+        run: |
+          unzip -qq docs-v1/${{ env.ARTIFACT }} -d dist/v1
+          unzip -qq docs-v2/${{ env.ARTIFACT }} -d dist/v2
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
