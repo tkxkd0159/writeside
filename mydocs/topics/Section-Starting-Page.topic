@@ -14,7 +14,7 @@
         <!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
         <spotlight>
             <a href="XML-reference.topic" type="development" summary="XML reference for Writerside (recommened)">XML Markup</a>
-            <a href="Default-topic.md" type="documents" summary="Markdown reference for Writerside">Markdown Markup</a>
+            <a href="Markdown-reference.md" type="documents" summary="Markdown reference for Writerside">Markdown Markup</a>
         </spotlight>
 
         <!--    Add several topics that are most important for this section.    -->

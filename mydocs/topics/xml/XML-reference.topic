@@ -309,7 +309,7 @@
             <include from="Code.topic" element-id="goch"/>
                 ]]>
             </code-block>
-            <include from="Code.topic" element-id="goch"/>
+            <include from="Code-snippets.topic" element-id="goch"/>
 
             <code-block lang="xml">
                 <![CDATA[
@@ -678,7 +678,7 @@
                 Search</a>
         </category>
         <category ref="1">
-            <a href="Default-topic.md" instance="js"></a>
+            <a href="Markdown-reference.md" instance="js"></a>
         </category>
         <category ref="2">
             <a href="Nested-topic.topic" instance="js"></a>
