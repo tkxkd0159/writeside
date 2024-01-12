@@ -306,7 +306,7 @@
 
             <code-block lang="xml">
                 <![CDATA[
-            <include from="Code.topic" element-id="goch"/>
+            <include from="Code-snippets.topic" element-id="goch"/>
                 ]]>
             </code-block>
             <include from="Code-snippets.topic" element-id="goch"/>
