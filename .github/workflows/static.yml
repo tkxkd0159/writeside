@@ -37,13 +37,13 @@ jobs:
           artifact: ${{ env.ARTIFACT }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docs-${{ matrix.version }}
           path: |
             artifacts/${{ env.ARTIFACT }}
             artifacts/report.json
-          retention-days: 7
+          retention-days: 3
 
     # Add the job below and artifacts/report.json on Upload documentation step above if you want to fail the build when documentation contains errors
   test:
@@ -55,7 +55,7 @@ jobs:
 
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docs-${{ matrix.version }}
           path: artifacts
@@ -74,7 +74,7 @@ jobs:
 
     steps:
       - name: Download docs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Generate documents destination
         run: |
