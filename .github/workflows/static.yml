@@ -12,7 +12,7 @@ permissions:
   pages: write
 
 env:
-  STABLE_VERSION: v1
+  STABLE_VERSION: v2
   # Name of module and id separated by a slash
   INSTANCE: mydocs/js
   # Replace XX with the ID of the instance in capital letters
@@ -22,7 +22,9 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [v1, v2]
+        version: [v1]
+        include:
+          - version: ${{ github.ref_name }}
     runs-on: ubuntu-latest
 
     steps:
@@ -51,7 +53,9 @@ jobs:
     needs: build
     strategy:
       matrix:
-        version: [v1, v2]
+        version: [v1]
+        include:
+          - version: ${{ github.ref_name }}
     runs-on: ubuntu-latest
 
     steps:
@@ -81,13 +85,10 @@ jobs:
         run: |
           mkdir -p dist/v1 && mkdir dist/v2
 
-      - name: check dir
-        run: ls -R
-
       - name: Unzip docs
         run: |
           unzip -qq docs-v1/${{ env.ARTIFACT }} -d dist/v1
-          unzip -qq docs-v2/${{ env.ARTIFACT }} -d dist/v2
+          unzip -qq docs-${{ github.ref_name }}/${{ env.ARTIFACT }} -d dist/v2
 
       - name: Setup Pages
         uses: actions/configure-pages@v3

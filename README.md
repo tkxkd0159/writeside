@@ -1,5 +1,5 @@
 # Versioning
-1. 각 버전 관리할 브랜치 하나씩 생성
+1. 각 버전 관리할 브랜치 하나씩 생성 (가장 최신 major version은 main에서 태그로 관리)
 2. 설정 업데이트
    1. root의 `writerside.cfg`에서 `<instance>`에 `version` 설정
    2. 정적으로 배포되어 있는 `help-version.json`에서 버전 관련 메타데이터 작성. 이 때 `version` 값은 위의 `<instance>`에 선언한 값과 동일해야 함.
