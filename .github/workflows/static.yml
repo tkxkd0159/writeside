@@ -12,19 +12,17 @@ permissions:
   pages: write
 
 env:
-  # Name of module and id separated by a slash
-  INSTANCE_V2: mydocs/js
-  # Replace XX with the ID of the instance in capital letters
-  ARTIFACT_V2: webHelpJS2-all.zip
-  INSTANCE_V1: mydocs/js
   ARTIFACT_V1: webHelpJS2-all.zip
+  ARTIFACT_V2: webHelpJS2-all.zip
 
 jobs:
   build:
     strategy:
       matrix:
         version: [v1]
+        # Name of module and id separated by a slash
         instance: [mydocs/js]
+        # Replace XX with the ID of the instance in capital letters
         artifact: [webHelpJS2-all.zip]
     runs-on: ubuntu-latest
     
@@ -85,6 +83,9 @@ jobs:
 #        uses: actions/download-artifact@v3
 #        with:
 #          name: docsv2
+
+      - name: Generate documents destination
+        run: mkdir -p dist/v1 && mkdir dist/v2
 
       - name: Unzip v1 docs
         uses: montudor/action-zip@v1
