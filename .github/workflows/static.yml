@@ -13,12 +13,19 @@ permissions:
 
 env:
   # Name of module and id separated by a slash
-  INSTANCE: docs-v1/js
+  INSTANCE_V2: mydocs/js
   # Replace XX with the ID of the instance in capital letters
-  ARTIFACT: webHelpJS2-all.zip
+  ARTIFACT_V2: webHelpJS2-all.zip
+  INSTANCE_V1: mydocs/js
+  ARTIFACT_V1: webHelpJS2-all.zip
 
 jobs:
   build:
+    strategy:
+      matrix:
+        version: [v1]
+        instance: [mydocs/js]
+        artifact: [webHelpJS2-all.zip]
     runs-on: ubuntu-latest
     
     steps:
@@ -28,34 +35,38 @@ jobs:
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
         with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
+          instance: ${{ matrix.instance }}
+          artifact: ${{ matrix.artifact }}
         
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: docs
+          name: docs${{ matrix.version }}
           path: |
-            artifacts/${{ env.ARTIFACT }}
+            artifacts/${{ matrix.artifact }}
             artifacts/report.json
           retention-days: 7
 
     # Add the job below and artifacts/report.json on Upload documentation step above if you want to fail the build when documentation contains errors
   test:
-    # Requires build job results
     needs: build
+    strategy:
+      matrix:
+        version: [v1]
+        instance: [mydocs/js]
+        artifact: [webHelpJS2-all.zip]
     runs-on: ubuntu-latest
 
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v1
         with:
-          name: docs
+          name: docs${{ matrix.version }}
           path: artifacts
       - name: Test documentation
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: ${{ env.INSTANCE }}
+          instance: ${{ matrix.instance }}
 
   deploy:
     environment:
@@ -65,15 +76,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifact
+      - name: Download v1 docs
         uses: actions/download-artifact@v3
         with:
-          name: docs
+          name: docsv1
 
-      - name: Unzip artifact
+#      - name: Download v2 docs
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: docsv2
+
+      - name: Unzip v1 docs
         uses: montudor/action-zip@v1
         with:
-          args: unzip -qq ${{ env.ARTIFACT }} -d dist
+          args: unzip -qq ${{ env.ARTIFACT_V1 }} -d dist/v1
+
+#      - name: Unzip v2 docs
+#        uses: montudor/action-zip@v1
+#        with:
+#          args: unzip -qq ${{ env.ARTIFACT_V2 }} -d dist/v2
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
