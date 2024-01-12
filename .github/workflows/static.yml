@@ -12,6 +12,7 @@ permissions:
   pages: write
 
 env:
+  LATEST_RELEASE: v1
   ARTIFACT_V1: webHelpJS2-all.zip
   ARTIFACT_V2: webHelpJS2-all.zip
 
@@ -69,7 +70,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}/${{ env.LATEST_RELEASE }}
     needs: build
     runs-on: ubuntu-latest
 
