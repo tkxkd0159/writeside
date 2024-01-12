@@ -22,9 +22,7 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [v1]
-        include:
-          - version: ${{ github.ref_name }}
+        version: [v1, ${{ github.ref_name }}]
     runs-on: ubuntu-latest
 
     steps:
@@ -53,9 +51,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        version: [v1]
-        include:
-          - version: ${{ github.ref_name }}
+        version: [v1, ${{ github.ref_name }}]
     runs-on: ubuntu-latest
 
     steps:
@@ -88,7 +84,7 @@ jobs:
       - name: Unzip docs
         run: |
           unzip -qq docs-v1/${{ env.ARTIFACT }} -d dist/v1
-          unzip -qq docs-${{ github.ref_name }}/${{ env.ARTIFACT }} -d dist/v2
+          unzip -qq docs-${{ github.ref_name }}/${{ env.ARTIFACT }} -d dist/${{ env.STABLE_VERSION }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
