@@ -12,19 +12,13 @@ permissions:
   pages: write
 
 env:
-  LATEST_RELEASE: v1
-  ARTIFACT_V1: webHelpJS2-all.zip
-  ARTIFACT_V2: webHelpJS2-all.zip
+  # Name of module and id separated by a slash
+  INSTANCE: mydocs/js
+  # Replace XX with the ID of the instance in capital letters
+  ARTIFACT: webHelpJS2-all.zip
 
 jobs:
   build:
-    strategy:
-      matrix:
-        version: [v1]
-        # Name of module and id separated by a slash
-        instance: [mydocs/js]
-        # Replace XX with the ID of the instance in capital letters
-        artifact: [webHelpJS2-all.zip]
     runs-on: ubuntu-latest
     
     steps:
@@ -34,69 +28,54 @@ jobs:
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v4
         with:
-          instance: ${{ matrix.instance }}
-          artifact: ${{ matrix.artifact }}
+          instance: ${{ env.INSTANCE }}
+          artifact: ${{ env.ARTIFACT }}
         
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: docs${{ matrix.version }}
           path: |
-            artifacts/${{ matrix.artifact }}
+            artifacts/${{ env.ARTIFACT }}
             artifacts/report.json
           retention-days: 7
 
     # Add the job below and artifacts/report.json on Upload documentation step above if you want to fail the build when documentation contains errors
   test:
     needs: build
-    strategy:
-      matrix:
-        version: [v1]
-        instance: [mydocs/js]
-        artifact: [webHelpJS2-all.zip]
     runs-on: ubuntu-latest
 
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v1
         with:
-          name: docs${{ matrix.version }}
+          name: docs
           path: artifacts
       - name: Test documentation
         uses: JetBrains/writerside-checker-action@v1
         with:
-          instance: ${{ matrix.instance }}
+          instance: ${{ env.INSTANCE }}
 
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}/${{ env.LATEST_RELEASE }}
+      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download v1 docs
+      - name: Download docs
         uses: actions/download-artifact@v3
         with:
-          name: docsv1
-
-#      - name: Download v2 docs
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: docsv2
+          name: docs
 
       - name: Generate documents destination
-        run: mkdir -p dist/v1 && mkdir dist/v2
+        run: mkdir -p dist/v1
 
-      - name: Unzip v1 docs
+      - name: Unzip docs
         uses: montudor/action-zip@v1
         with:
-          args: unzip -qq ${{ env.ARTIFACT_V1 }} -d dist/v1
-
-#      - name: Unzip v2 docs
-#        uses: montudor/action-zip@v1
-#        with:
-#          args: unzip -qq ${{ env.ARTIFACT_V2 }} -d dist/v2
+          args: unzip -qq ${{ env.ARTIFACT }} -d dist/v1
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
