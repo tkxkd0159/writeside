@@ -1,0 +1,34 @@
+pull_request_rules:
+  - name: backport patches to the all branches
+    conditions:
+      - label=bp/all
+      - base=main
+    actions:
+      backport:
+        branches:
+          - "v1"
+          - "v2"
+        assignees:
+          - "{{ author }}"
+
+  - name: backport patches to the v1 branches
+    conditions:
+      - label=bp/v1
+      - base=main
+    actions:
+      backport:
+        branches:
+          - "v1"
+        assignees:
+          - "{{ author }}"
+
+  - name: backport patches to the v2 branches
+    conditions:
+      - label=bp/v2
+      - base=main
+    actions:
+      backport:
+        branches:
+          - "v2"
+        assignees:
+          - "{{ author }}"
