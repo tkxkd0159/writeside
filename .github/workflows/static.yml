@@ -16,6 +16,7 @@ env:
   INSTANCE: mydocs/js
   # Replace XX with the ID of the instance in capital letters
   ARTIFACT: webHelpJS2-all.zip
+  ALGOLIA_ARTIFACT: algolia-indexes-JS.zip
 
 jobs:
   build:
@@ -36,6 +37,9 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
 
+      - name : check build outputs
+        run: ls -R
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -45,7 +49,14 @@ jobs:
             artifacts/report.json
           retention-days: 3
 
-    # Add the job below and artifacts/report.json on Upload documentation step above if you want to fail the build when documentation contains errors
+      - name: Upload algolia-indexes
+        if: ${{ matrix.version == vars.STABLE_VERSION }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: algolia-indexes-${{ vars.STABLE_VERSION }}
+          path: artifacts/${{ env.ALGOLIA_ARTIFACT }}
+          retention-days: 3
+
   test:
     needs: build
     strategy:
@@ -75,10 +86,13 @@ jobs:
     steps:
       - name: Download docs
         uses: actions/download-artifact@v4
+        with:
+          pattern: docs-*
 
       - name: Generate documents destination
         run: |
-          mkdir -p dist/v1 && mkdir dist/${{ vars.STABLE_VERSION }}
+          mkdir -p dist/v1
+          mkdir dist/${{ vars.STABLE_VERSION }}
 
       - name: Unzip docs
         run: |
@@ -96,3 +110,34 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+  publish-indexes:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2
+
+    env:
+      ALGOLIA_APP_NAME: WHIXSMPJX1
+      ALGOLIA_INDEX_NAME: test_writerside_manual
+      ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+      ALGOLIA_ARTIFACT: algolia-indexes-${{ vars.STABLE_VERSION }}.zip
+      CONFIG_JSON_PRODUCT: JS
+      CONFIG_JSON_VERSION: 2.0
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: algolia-indexes
+      - name: Unzip artifact
+        run: |
+          unzip -O UTF-8 -qq ${{ env.ALGOLIA_ARTIFACT }} -d algolia-indexes
+          env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
+          update-index \
+          --application-name ${{env.ALGOLIA_APP_NAME}} \
+          --index-name ${{env.ALGOLIA_INDEX_NAME}} \
+          --product ${{env.CONFIG_JSON_PRODUCT}} \
+          --version ${{env.CONFIG_JSON_VERSION}} \
+          --index-directory algolia-indexes/ \
+          2>&1 | tee algolia-update-index-log.txt
