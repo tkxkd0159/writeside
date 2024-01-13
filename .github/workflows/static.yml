@@ -48,7 +48,7 @@ jobs:
 
       - name: Upload algolia-indexes
         if: ${{ matrix.version == vars.STABLE_VERSION }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: algolia-indexes
           path: artifacts/${{ env.ALGOLIA_ARTIFACT }}
@@ -118,7 +118,7 @@ jobs:
       ALGOLIA_APP_NAME: WHIXSMPJX1
       ALGOLIA_INDEX_NAME: test_writerside_manual
       ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
-      CONFIG_JSON_PRODUCT: JS
+      CONFIG_JSON_PRODUCT: v2
       CONFIG_JSON_VERSION: 2.0
 
     steps:
