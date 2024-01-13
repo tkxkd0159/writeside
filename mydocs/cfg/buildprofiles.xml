@@ -37,13 +37,13 @@
             <feedback-support>support_tickec_url</feedback-support>
 
             <versions-switcher>https://raw.githubusercontent.com/tkxkd0159/writeside/main/help-version.json</versions-switcher>
-            <noindex-content>false</noindex-content>
 
-<!--        Search in published documentation.-->
+            <!--        Search in published documentation.-->
             <algolia-id>WHIXSMPJX1</algolia-id>
             <algolia-index>test_writerside_manual</algolia-index>
             <algolia-api-key>d91ae8e5ea9719370b7b93f49e8872b9</algolia-api-key>
-            <web-root>https://tkxkd0159.github.io/writeside</web-root>
+            <web-root>https://tkxkd0159.github.io/writeside/v2</web-root>
+            <noindex-content>false</noindex-content>
         </variables>
     </build-profile>
 </buildprofiles>
