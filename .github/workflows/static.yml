@@ -50,7 +50,7 @@ jobs:
         if: ${{ matrix.version == vars.STABLE_VERSION }}
         uses: actions/upload-artifact@v3
         with:
-          name: algolia-indexes-${{ vars.STABLE_VERSION }}
+          name: algolia-indexes
           path: artifacts/${{ env.ALGOLIA_ARTIFACT }}
           retention-days: 3
 
@@ -118,7 +118,6 @@ jobs:
       ALGOLIA_APP_NAME: WHIXSMPJX1
       ALGOLIA_INDEX_NAME: test_writerside_manual
       ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
-      ALGOLIA_ARTIFACT: algolia-indexes-${{ vars.STABLE_VERSION }}.zip
       CONFIG_JSON_PRODUCT: JS
       CONFIG_JSON_VERSION: 2.0
 
