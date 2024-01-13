@@ -48,93 +48,93 @@ jobs:
 
       - name: Upload algolia-indexes
         if: ${{ matrix.version == vars.STABLE_VERSION }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: algolia-indexes
           path: artifacts/${{ env.ALGOLIA_ARTIFACT }}
           retention-days: 3
 
-#  test:
-#    needs: build
-#    strategy:
-#      matrix:
-#        version: [v1, v2]
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Download artifacts
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: docs-${{ matrix.version }}
-#          path: artifacts
-#
-#      - name: Test documentation
-#        uses: JetBrains/writerside-checker-action@v1
-#        with:
-#          instance: ${{ env.INSTANCE }}
-#
-#  deploy:
-#    environment:
-#      name: github-pages
-#      url: ${{ steps.deployment.outputs.page_url }}${{ vars.STABLE_VERSION }}
-#    needs: build
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Download docs
-#        uses: actions/download-artifact@v4
-#        with:
-#          pattern: docs-*
-#
-#      - name: Generate documents destination
-#        run: |
-#          mkdir -p dist/v1
-#          mkdir dist/${{ vars.STABLE_VERSION }}
-#
-#      - name: Unzip docs
-#        run: |
-#          unzip -qq docs-v1/${{ env.ARTIFACT }} -d dist/v1
-#          unzip -qq docs-${{ vars.STABLE_VERSION }}/${{ env.ARTIFACT }} -d dist/${{ vars.STABLE_VERSION }}
-#
-#      - name: Setup Pages
-#        uses: actions/configure-pages@v3
-#
-#      - name: Upload artifact
-#        uses: actions/upload-pages-artifact@v2
-#        with:
-#          path: 'dist'
-#
-#      - name: Deploy to GitHub Pages
-#        id: deployment
-#        uses: actions/deploy-pages@v2
-#
-#  publish-indexes:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    container:
-#      image: registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2
-#
-#    env:
-#      ALGOLIA_APP_NAME: WHIXSMPJX1
-#      ALGOLIA_INDEX_NAME: test_writerside_manual
-#      ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
-#      CONFIG_JSON_PRODUCT: JS
-#      CONFIG_JSON_VERSION: 2.0
-#
-#    steps:
-#      - name: Download artifact
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: algolia-indexes
-#
-#      - name: Unzip artifact
-#        run: |
-#          unzip -O UTF-8 -qq ${{ env.ALGOLIA_ARTIFACT }} -d algolia-indexes
-#          env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
-#          update-index \
-#          --application-name ${{env.ALGOLIA_APP_NAME}} \
-#          --index-name ${{env.ALGOLIA_INDEX_NAME}} \
-#          --product ${{env.CONFIG_JSON_PRODUCT}} \
-#          --version ${{env.CONFIG_JSON_VERSION}} \
-#          --index-directory algolia-indexes/ \
-#          2>&1 | tee algolia-update-index-log.txt
+  test:
+    needs: build
+    strategy:
+      matrix:
+        version: [v1, v2]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-${{ matrix.version }}
+          path: artifacts
+
+      - name: Test documentation
+        uses: JetBrains/writerside-checker-action@v1
+        with:
+          instance: ${{ env.INSTANCE }}
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}${{ vars.STABLE_VERSION }}
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download docs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: docs-*
+
+      - name: Generate documents destination
+        run: |
+          mkdir -p dist/v1
+          mkdir dist/${{ vars.STABLE_VERSION }}
+
+      - name: Unzip docs
+        run: |
+          unzip -qq docs-v1/${{ env.ARTIFACT }} -d dist/v1
+          unzip -qq docs-${{ vars.STABLE_VERSION }}/${{ env.ARTIFACT }} -d dist/${{ vars.STABLE_VERSION }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+  publish-indexes:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2
+
+    env:
+      ALGOLIA_APP_NAME: WHIXSMPJX1
+      ALGOLIA_INDEX_NAME: test_writerside_manual
+      ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+      CONFIG_JSON_PRODUCT: JS
+      CONFIG_JSON_VERSION: 2.0
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: algolia-indexes
+
+      - name: Unzip artifact
+        run: |
+          unzip -O UTF-8 -qq ${{ env.ALGOLIA_ARTIFACT }} -d algolia-indexes
+          env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
+          update-index \
+          --application-name ${{env.ALGOLIA_APP_NAME}} \
+          --index-name ${{env.ALGOLIA_INDEX_NAME}} \
+          --product ${{env.CONFIG_JSON_PRODUCT}} \
+          --version ${{env.CONFIG_JSON_VERSION}} \
+          --index-directory algolia-indexes/ \
+          2>&1 | tee algolia-update-index-log.txt
