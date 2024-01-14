@@ -15,4 +15,5 @@
 
         <include from="xe.tree" element-id="xml-intro"/>
     </toc-element>
+    <toc-element toc-title="Writerside Docs" href="https://www.jetbrains.com/help/writerside/discover-writerside.html"/>
 </instance-profile>
