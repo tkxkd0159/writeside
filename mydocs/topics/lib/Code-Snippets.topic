@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Code snippets" is-library="true" id="code-snippets-src">
+       title="Code snippets" id="Code-Snippets" is-library="true">
 
     <snippet id="goch">
         <code-block lang="go">
@@ -31,4 +33,5 @@
         </code-block>
 
     </snippet>
+
 </topic>
