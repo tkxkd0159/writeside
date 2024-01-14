@@ -306,10 +306,10 @@
 
             <code-block lang="xml">
                 <![CDATA[
-            <include from="Code-snippets.topic" element-id="goch"/>
+            <include from="Code-Snippets.topic" element-id="goch"/>
                 ]]>
             </code-block>
-            <include from="Code-snippets.topic" element-id="goch"/>
+            <include from="Code-Snippets.topic" element-id="goch"/>
 
             <code-block lang="xml">
                 <![CDATA[
@@ -591,27 +591,55 @@
 
             <code-block lang="xml">
                 <![CDATA[
-                <buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                               xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
-                    <variables>
-                        <primary-color>aqua</primary-color>
-                        <custom-favicons>favicon.png</custom-favicons>
-                        <header-logo>fnsa.png</header-logo>
-                        <product-web-url>https://tkxkd0159.github.io/writeside/section-starting-page.html</product-web-url>
-                        <download-title>Get source code</download-title>
-                        <download-page>https://github.com/tkxkd0159/writeside</download-page>
-                        <showDownloadButton>true</showDownloadButton>
-                    </variables>
+<buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
 
-                    <footer>
-                        <copyright>Jaeseung Lee</copyright>
-                <!--    social type : facebook, twitter, linkedin, youtube, instagram, weibo, blog, rss, bilibili, email-->
-                        <social type="blog" href="link to a blog"></social>
-                        <social type="twitter" href="link to a Twitter account"></social>
-                        <social type="facebook" href="link to a Facebook account"></social>
-                        <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
-                    </footer>
-                </buildprofiles>
+    <shortcuts>
+        <src>keymap.xml</src>
+        <layout name="Windows" display-name="Windows"/>
+        <layout name="macOS" display-name="MacOS"/>
+        <layout name="Linux" display-name="Linux"/>
+    </shortcuts>
+
+    <variables>
+        <primary-color>aqua</primary-color>
+        <custom-favicons>favicon.png</custom-favicons>
+        <header-logo>fnsa.png</header-logo>
+        <product-web-url>https://tkxkd0159.github.io/writeside/section-starting-page.html</product-web-url>
+        <download-title>Get source code</download-title>
+        <download-page>https://github.com/tkxkd0159/writeside</download-page>
+        <showDownloadButton>true</showDownloadButton>
+        <noindex-content>false</noindex-content>
+    </variables>
+
+    <footer>
+        <copyright>Jaeseung Lee</copyright>
+<!--    social type : facebook, twitter, linkedin, youtube, instagram, weibo, blog, rss, bilibili, email-->
+        <social type="blog" href="link to a blog"/>
+        <social type="twitter" href="link to a Twitter account"/>
+        <social type="facebook" href="link to a Facebook account"/>
+        <link href="https://example.com/terms-an-conditions.html">Terms and conditions</link>
+    </footer>
+
+    <build-profile instance="js">
+        <variables>
+
+            <feedback-widget>true</feedback-widget>
+            <feedbackRequireEmail>true</feedbackRequireEmail>
+            <feedback-url>https://example.com</feedback-url>
+            <feedback-support>support_tickec_url</feedback-support>
+
+            <versions-switcher>https://raw.githubusercontent.com/tkxkd0159/writeside/main/help-version.json</versions-switcher>
+
+            <!--        Search in published documentation.-->
+            <algolia-id>WHIXSMPJX1</algolia-id>
+            <algolia-index>test_writerside_manual</algolia-index>
+            <algolia-api-key>d91ae8e5ea9719370b7b93f49e8872b9</algolia-api-key>
+            <web-root>https://tkxkd0159.github.io/writeside</web-root>
+            <noindex-content>false</noindex-content>
+        </variables>
+    </build-profile>
+</buildprofiles>
                 ]]>
             </code-block>
         </chapter>
