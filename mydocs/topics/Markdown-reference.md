@@ -105,7 +105,7 @@ Content under such header will be collapsed by default, but you can modify the b
 
 ## Code Snippet {switcher-key="For Docs"}
 ### By library
-<include from="Code-snippets.topic" element-id="goch"></include>
+<include from="Code-Snippets.topic" element-id="goch"></include>
 
 ### By \<snippets\>
 ```go
