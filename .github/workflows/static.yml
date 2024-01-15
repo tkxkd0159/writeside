@@ -119,7 +119,7 @@ jobs:
       ALGOLIA_INDEX_NAME: test_writerside_manual
       ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
       CONFIG_JSON_PRODUCT: v2
-      CONFIG_JSON_VERSION: 2.0
+      CONFIG_JSON_VERSION: 2
 
     steps:
       - name: Download artifact
