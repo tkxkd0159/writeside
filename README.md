@@ -1,5 +1,7 @@
 # Rules
 * 파일 이름은 대소문자 구분해서 파일 안에서 참조 시 이를 지켜야한다. 단, 컴파일된 `html`은 소문자 kebab case로 변하기 때문에 같은 이름의 대소문자 다른 파일은 생성 불가.
+* 현재 Algoria index 업로드할 때 floating number 처리 못하는 버그있음. 무조건 소수점 떼고 정수로 올리기 때문에 버그 해결 전까지 `writeside.cfg`에서 버전 설정 정수. `CONFIG_JSON_VERSION`도 이에 맞춰서 설정.
+
 # Versioning
 1. 각 버전 관리할 브랜치 하나씩 생성.
 2. 설정 업데이트
